@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: ./
+    ports:
+    - "3000:3000"
+  parca:
+    image: ghcr.io/parca-dev/parca:v0.12.1
+    command: /parca --config-path=/opt/parca.yaml
+    ports:
+    - "7070:7070"
+    volumes:
+    - "./parca.yaml:/opt/parca.yaml"
